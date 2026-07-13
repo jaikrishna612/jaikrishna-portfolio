@@ -15,7 +15,7 @@ import {
   GraduationCap,
   Download,
 } from "lucide-react";
-import jaikrishnaResume from "./files/Jaikrishna_Resume_portfolio.pdf"
+import jaikrishnaResume from "./files/JaiKrishna_Resume_portfolio.pdf"
 
 /* ---------------------------------------------------------
    DATA — sourced from Jai Krishna's resume
