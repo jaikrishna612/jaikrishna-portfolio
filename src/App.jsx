@@ -13,7 +13,9 @@ import {
   Boxes,
   ScanLine,
   GraduationCap,
+  Download,
 } from "lucide-react";
+import jaikrishnaResume from "./files/Jaikrishna_Resume_portfolio.pdf"
 
 /* ---------------------------------------------------------
    DATA — sourced from Jai Krishna's resume
@@ -28,6 +30,7 @@ const PROFILE = {
   phone: "+91-9121738303",
   github: "https://github.com/jaikrishna612",
   linkedin: "https://linkedin.com/in/jai-krishna-88ba28201",
+  resume: jaikrishnaResume,
 };
 
 const EXPERIENCE = [
@@ -170,14 +173,14 @@ function Nav() {
             </a>
           ))}
         </nav>
-        {/* <a
-          href={PROFILE.github}
+        <a
+          href="https://github.com/jaikrishna612/jaikrishna-portfolio"
           target="_blank"
           rel="noreferrer"
           className="font-mono text-xs uppercase tracking-widest text-mint border border-mint/30 rounded-full px-4 py-1.5 hover:bg-mint/10 transition-colors"
         >
           View Code
-        </a> */}
+        </a>
       </div>
     </header>
   );
@@ -211,7 +214,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-void bg-grid bg-grid px-6"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-void bg-grid bg-grid px-5 sm:px-6"
     >
       <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)] bg-grid bg-grid opacity-40" />
       <motion.div
@@ -221,8 +224,8 @@ function Hero() {
         transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="relative max-w-6xl mx-auto w-full pt-24">
-        <div className="font-mono text-xs text-mint/80 h-24 mb-6 space-y-1">
+      <div className="relative max-w-6xl mx-auto w-full pt-28 sm:pt-24">
+        <div className="font-mono text-[11px] sm:text-xs text-mint/80 h-28 sm:h-24 mb-6 space-y-1 break-words">
           {lines.map((line, idx) => (
             <div key={idx}>{line}</div>
           ))}
@@ -233,7 +236,7 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl sm:text-7xl font-semibold tracking-tight text-ink leading-[1.05]"
+          className="font-display text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-ink leading-[1.1] sm:leading-[1.05]"
         >
           Kothapally
           <br />
@@ -255,19 +258,26 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.9 }}
-          className="mt-9 flex flex-wrap items-center gap-4"
+          className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4"
         >
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 bg-mint text-void font-medium px-6 py-3 rounded-full hover:shadow-glow transition-shadow"
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2 bg-mint text-void font-medium px-6 py-3.5 sm:py-3 rounded-full hover:shadow-glow transition-shadow"
           >
             View Projects <ChevronRight size={16} />
+          </a>
+          <a
+            href={PROFILE.resume}
+            download
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-violet/50 text-violet px-6 py-3.5 sm:py-3 rounded-full hover:bg-violet/10 transition-colors"
+          >
+            <Download size={16} /> Resume
           </a>
           <a
             href={PROFILE.github}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 border border-white/15 px-6 py-3 rounded-full hover:border-mint/60 transition-colors"
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-white/15 px-6 py-3.5 sm:py-3 rounded-full hover:border-mint/60 transition-colors"
           >
             <Github size={16} /> GitHub
           </a>
@@ -275,7 +285,7 @@ function Hero() {
             href={PROFILE.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 border border-white/15 px-6 py-3 rounded-full hover:border-violet/60 transition-colors"
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-white/15 px-6 py-3.5 sm:py-3 rounded-full hover:border-violet/60 transition-colors"
           >
             <Linkedin size={16} /> LinkedIn
           </a>
@@ -299,7 +309,7 @@ function Hero() {
 --------------------------------------------------------- */
 function About() {
   return (
-    <section id="about" className="relative py-28 px-6 border-t border-white/5">
+    <section id="about" className="relative py-20 sm:py-28 px-5 sm:px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.4fr] gap-14">
         <Reveal>
           <Eyebrow>About</Eyebrow>
@@ -343,7 +353,7 @@ function About() {
 --------------------------------------------------------- */
 function Experience() {
   return (
-    <section id="experience" className="relative py-28 px-6 border-t border-white/5 bg-surface/40">
+    <section id="experience" className="relative py-20 sm:py-28 px-5 sm:px-6 border-t border-white/5 bg-surface/40">
       <div className="max-w-6xl mx-auto">
         <Reveal>
           <Eyebrow>Experience</Eyebrow>
@@ -355,7 +365,7 @@ function Experience() {
         <div className="space-y-10">
           {EXPERIENCE.map((job, idx) => (
             <Reveal key={idx} delay={idx * 0.1}>
-              <div className="group relative border border-white/10 rounded-2xl p-8 hover:border-mint/40 transition-colors bg-void/40">
+              <div className="group relative border border-white/10 rounded-2xl p-5 sm:p-8 hover:border-mint/40 transition-colors bg-void/40">
                 <BracketFrame />
                 <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
                   <div>
@@ -411,7 +421,7 @@ function ProjectCard({ project, idx }) {
           )}
         </div>
 
-        <div className="p-7">
+        <div className="p-5 sm:p-7">
           <div className="font-mono text-xs text-muted uppercase tracking-widest mb-2">{project.tag}</div>
           <h3 className="font-display text-xl font-medium text-ink mb-3">{project.title}</h3>
           <p className="text-muted leading-relaxed mb-5">{project.description}</p>
@@ -443,7 +453,7 @@ function ProjectCard({ project, idx }) {
 
 function Projects() {
   return (
-    <section id="projects" className="relative py-28 px-6 border-t border-white/5">
+    <section id="projects" className="relative py-20 sm:py-28 px-5 sm:px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         <Reveal>
           <Eyebrow>Projects</Eyebrow>
@@ -466,7 +476,7 @@ function Projects() {
 --------------------------------------------------------- */
 function Stack() {
   return (
-    <section id="stack" className="relative py-28 px-6 border-t border-white/5 bg-surface/40">
+    <section id="stack" className="relative py-20 sm:py-28 px-5 sm:px-6 border-t border-white/5 bg-surface/40">
       <div className="max-w-6xl mx-auto">
         <Reveal>
           <Eyebrow>System Stack</Eyebrow>
@@ -522,7 +532,7 @@ function Stack() {
 --------------------------------------------------------- */
 function Contact() {
   return (
-    <section id="contact" className="relative py-28 px-6 border-t border-white/5">
+    <section id="contact" className="relative py-20 sm:py-28 px-5 sm:px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto text-center">
         <Reveal>
           <Eyebrow>
@@ -541,32 +551,39 @@ function Contact() {
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="flex flex-wrap justify-center gap-4 mb-14">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-14 px-4">
             <a
               href={`mailto:${PROFILE.email}`}
-              className="inline-flex items-center gap-2 bg-mint text-void font-medium px-6 py-3 rounded-full hover:shadow-glow transition-shadow"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 bg-mint text-void font-medium px-6 py-3.5 sm:py-3 rounded-full hover:shadow-glow transition-shadow"
             >
               <Mail size={16} /> {PROFILE.email}
             </a>
+            <a
+              href={PROFILE.resume}
+              download
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-violet/50 text-violet px-6 py-3.5 sm:py-3 rounded-full hover:bg-violet/10 transition-colors"
+            >
+              <Download size={16} /> Download Resume
+            </a>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 font-mono text-xs text-muted">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 font-mono text-xs text-muted px-4">
             <a
               href={PROFILE.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 rounded-full hover:border-mint/60 hover:text-mint transition-colors"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-white/15 px-5 py-3 sm:py-2.5 rounded-full hover:border-mint/60 hover:text-mint transition-colors"
             >
-              <Github size={14} /> github.com/jaikrishna612
+              <Github size={14} /> github.com/jaikrishna612/jaikrishna-portfolio
             </a>
             <a
               href={PROFILE.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 rounded-full hover:border-violet/60 hover:text-violet transition-colors"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-white/15 px-5 py-3 sm:py-2.5 rounded-full hover:border-violet/60 hover:text-violet transition-colors"
             >
               <Linkedin size={14} /> linkedin.com/in/jai-krishna-88ba28201
             </a>
-            <span className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 rounded-full">
+            <span className="w-full sm:w-auto justify-center inline-flex items-center gap-2 border border-white/15 px-5 py-3 sm:py-2.5 rounded-full">
               <Phone size={14} /> {PROFILE.phone}
             </span>
           </div>
